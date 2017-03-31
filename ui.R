@@ -18,29 +18,28 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-      uiOutput('testUI')
-       # for (i in 1:dim(data)[2]-1){
-       #    sliderUI <- paste0('slider',i)         
-       #    uiOutput(sliderUI)
-       #    print('create dynamic UI for sliders')
-       #    },
-      #  selectizeInput(
-      #     'selectVar2PlotID', label = 'Select variables to explore (max =5)', choices = features2include ,
-      #      options = list(maxItems=5,placeholder = 'select a feature variable')
-      #  ),
-      # radioButtons("normMethodID","Normalization method",
-      #              c("MinMax" = "minmax",
-      #              "Raw" = "raw")),
-      # actionButton("go","Update"),
-      # verbatimTextOutput('textID'),
-      # tags$div(
-      #   HTML("<p> Instructions to use the app: </p> 
-      #             <ul>
-      #               <li> 0. Search the variable ID in the variableID lookup table on the right</li>
-      #               <li> 1. Choose the x-axis variable in date & time format</li>
-      #             </ul>
-      #        ")
-        #)
+        uiOutput('slidersUI'),
+        selectizeInput(
+           'selectMetric2PlotID', label = 'Select matrics to explore (max =5)', choices = features2include ,
+            options = list(maxItems=5,placeholder = 'select a feature variable')
+        ),
+        selectizeInput(
+           'selectVar2PlotID', label = 'Select variables for Radar Plot (max =5)', choices = data[feature2exclude] ,
+            options = list(maxItems=5,placeholder = 'select a feature variable')
+        ),
+       radioButtons("normMethodID","Normalization method",
+                    c("MinMax" = "minmax",
+                    "Raw" = "raw")),
+       actionButton("go","Update"),
+       verbatimTextOutput('textID'),
+       tags$div(
+         HTML("<p> Instructions to use the app: </p> 
+                   <ul>
+                     <li> 0. Search the variable ID in the variableID lookup table on the right</li>
+                     <li> 1. Choose the x-axis variable in date & time format</li>
+                   </ul>
+              ")
+        )
     ),
      
     
@@ -52,10 +51,10 @@ shinyUI(fluidPage(
         tabPanel("Variable ID Lookup", dataTableOutput("lookupTable")),
         tabPanel("Visualization",
                  fluidRow(
-                    column(8,plotOutput("tsplot"))
+                    column(12,plotOutput("tsplot"))
                  ),
                  fluidRow(
-                    column(8,plotOutput("radarplot"))
+                    column(12,plotOutput("radarplot"))
                  )
                  )
       )
