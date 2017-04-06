@@ -1,2 +1,2 @@
-"","variableID","correlation"
-"1","V1",0.5
+"","variableID","Corr","LReg","Lasso","MIC","RF","RFE","Ridge","Stablity","Mean"
+"1","x1",0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5

@@ -9,7 +9,7 @@
 
 library(shiny)
 source('global.R')
-# Define UI for application that draws a histogram
+# Define UI for application that exploring feature selection matrix
 shinyUI(fluidPage(
   
   # Application title
@@ -20,23 +20,23 @@ shinyUI(fluidPage(
     sidebarPanel(
         uiOutput('slidersUI'),
         selectizeInput(
-           'selectMetric2PlotID', label = 'Select matrics to explore (max =5)', choices = features2include ,
-            options = list(maxItems=5,placeholder = 'select a feature variable')
+           'selectMetric2PlotID', label = 'Select metrics to explore (max =10)', choices = features2include ,
+            options = list(maxItems=10,placeholder = 'select a feature variable')
         ),
         selectizeInput(
            'selectVar2PlotID', label = 'Select variables for Radar Plot (max =5)', choices = data[feature2exclude] ,
             options = list(maxItems=5,placeholder = 'select a feature variable')
         ),
-       radioButtons("normMethodID","Normalization method",
-                    c("MinMax" = "minmax",
-                    "Raw" = "raw")),
        actionButton("go","Update"),
        verbatimTextOutput('textID'),
        tags$div(
          HTML("<p> Instructions to use the app: </p> 
                    <ul>
                      <li> 0. Search the variable ID in the variableID lookup table on the right</li>
-                     <li> 1. Choose the x-axis variable in date & time format</li>
+                     <li> 1. Select metrics to explore (max=10)</li>
+                     <li> 2. Adjust sliders selected at step 1 to view the database
+                     <li> 3. Select variables to explore all matrics (max =5) </li>
+                     <li> 4. Click 'update below to view updated restuls </li>
                    </ul>
               ")
         )
@@ -48,6 +48,7 @@ shinyUI(fluidPage(
       img(src='logo.png',alt='IHS Markit', height=30, width=100,align = 'right'),
       tabsetPanel(
         tabPanel("Matrix Table",dataTableOutput("table")),
+        tabPanel("Radar Plot Data Table",dataTableOutput("radartable")),
         tabPanel("Variable ID Lookup", dataTableOutput("lookupTable")),
         tabPanel("Visualization",
                  fluidRow(
