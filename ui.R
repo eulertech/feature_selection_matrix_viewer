@@ -13,7 +13,7 @@ source('global.R')
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Time Series Interactive Visualization Demo (Dr. Liang Kuang)"),
+  titlePanel("Feature Selection Matrix Visualization Demo (By Advanced Analytic (LK))"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
@@ -39,7 +39,8 @@ shinyUI(fluidPage(
                      <li> 4. Click 'update below to view updated restuls </li>
                    </ul>
               ")
-        )
+        ),
+       a("Model Notebook", href = "Stability+selection-RFE-other.html")
     ),
      
     

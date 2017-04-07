@@ -78,6 +78,7 @@ shinyServer(function(input, output) {
              filtervec <-  data2use[cname] >=mv & data2use[cname]<= mx
              if(sum(filtervec)<1){
                output$textID <- renderText(paste0('There are no data in these criteria, with dimension of:',dim(data2use))) 
+               rv$data <- NULL
                return(rv)
              }else{
              data2use <- data2use[data2use[cname] >=mv & data2use[cname]<= mx,]

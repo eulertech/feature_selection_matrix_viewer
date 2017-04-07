@@ -1,6 +1,15 @@
 id, description
-V1, oil demand
-V2, oil supply
-V3, china economy
-V4, car sale
-V5, Iraq oil production
+X1, non-linear variable 1 
+X2, non-linear variable 2
+X3, quadratic variable 3
+X4, linear variable 4
+X5, linear variable 5
+X6, noise1
+X7, noise2
+X8, noise3
+X9, noise4
+X10,noise5
+X11,correlated with x1
+X12,correlated with x2
+X13,correlated with x3
+X14,correlated with x4

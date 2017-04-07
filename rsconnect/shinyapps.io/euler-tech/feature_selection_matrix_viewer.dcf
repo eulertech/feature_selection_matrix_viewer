@@ -2,9 +2,9 @@ name: feature_selection_matrix_viewer
 title: feature_selection_matrix_viewer
 account: euler-tech
 server: shinyapps.io
-appId: 170189
-bundleId: 779343
+appId: 170603
+bundleId: 781240
 url: https://euler-tech.shinyapps.io/feature_selection_matrix_viewer/
-when: 1491488939.71143
+when: 1491593583.86692
 asMultiple: FALSE
 asStatic: FALSE
